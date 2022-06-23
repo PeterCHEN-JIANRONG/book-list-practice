@@ -10,16 +10,30 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+  },
+  {
+    path: '/books',
+    name: 'Book List Page',
+    component: () => import('../views/BookList.vue'),
+  },
+  {
+    path: '/books/:bookId',
+    name: 'Book Detail Page',
+    component: () => import('../views/BookDetail.vue'),
   },
 ];
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
+  // 切換頁面時滾至頂部
+  scrollBehavior() {
+    return {
+      top: 0,
+      behavior: 'smooth',
+    };
+  },
 });
 
 export default router;

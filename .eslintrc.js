@@ -14,4 +14,9 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
   },
+   // defineProps、defineEmits 未定義錯誤
+   globals: {
+    defineProps: 'readonly',
+    defineEmits: 'readonly',
+  },
 };
