@@ -8,11 +8,6 @@ const routes = [
     component: Home,
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
-  },
-  {
     path: '/books',
     name: 'Book List Page',
     component: () => import('../views/BookList.vue'),
@@ -21,6 +16,11 @@ const routes = [
     path: '/books/:bookId',
     name: 'Book Detail Page',
     component: () => import('../views/BookDetail.vue'),
+  },
+  {
+    path: '/newBook',
+    name: 'New Book',
+    component: () => import('../views/BookNew.vue'),
   },
 ];
 

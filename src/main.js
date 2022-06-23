@@ -1,6 +1,8 @@
 import { createApp } from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
+import VueSweetalert2 from 'vue-sweetalert2'; // VueSweetalert2
+import '../node_modules/sweetalert2/dist/sweetalert2.min.css';
 import './assets/stylesheets/helps/tailwindcss.css';
 
 // vee-validate
@@ -29,6 +31,7 @@ setLocale('zh_TW');
 const app = createApp(App);
 app.use(router);
 app.use(VueAxios, axios);
+app.use(VueSweetalert2);
 app.component('Form', Form);
 app.component('Field', Field);
 app.component('ErrorMessage', ErrorMessage);

@@ -78,20 +78,23 @@ import { inject, onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import IconArrowLeft from '@/components/icons/IconArrowLeft.vue';
 import IconEdit from '@/components/icons/IconEdit.vue';
+import {
+  errorAlertConstruct,
+  successAlertConstruct,
+} from '@/utils/alertConstructHandle';
 
 const route = useRoute();
 const router = useRouter();
 const axios = inject('axios');
-const book = ref({});
-const tempBook = ref({});
+const Swal = inject('$swal');
 
+const book = ref({});
 const getBook = () => {
   const url = `${process.env.VUE_APP_API}/books/${route.params.bookId}`;
   axios
     .get(url)
     .then((res) => {
       book.value = res.data;
-      tempBook.value = JSON.parse(JSON.stringify(book.value));
     })
     .catch((err) => {
       console.log(err);
@@ -104,6 +107,7 @@ onMounted(() => {
 
 // 編輯書籍
 const isEdit = ref(false);
+const tempBook = ref({});
 const editBook = (id) => {
   const { title, author, description } = tempBook.value;
   const data = {
@@ -113,12 +117,12 @@ const editBook = (id) => {
   axios
     .patch(url, data)
     .then((res) => {
-      console.log('修改成功');
       book.value = res.data;
       isEdit.value = false;
+      Swal.fire(successAlertConstruct('成功', '編輯書籍成功'));
     })
     .catch((err) => {
-      console.log(err);
+      Swal.fire(errorAlertConstruct('失敗', err.response.data.message));
     });
 };
 

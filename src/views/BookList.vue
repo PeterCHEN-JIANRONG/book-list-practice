@@ -1,6 +1,8 @@
 <template>
-  <div class="text-center bg-white py-5 mb-3">
+  <div class="flex justify-between items-center bg-white py-5 px-3 mb-3">
+    <span></span>
     <h1 class="text-3xl font-bold">書本列表</h1>
+    <IconPlus class="cursor-pointer" size="30" @click="router.push('/newBook')"/>
   </div>
   <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
     <template v-for="book in books" :key="book.id">
@@ -13,8 +15,11 @@
 
 <script setup>
 import { ref, inject, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 import BookCard from '@/components/BookCard.vue';
+import IconPlus from '@/components/icons/IconPlus.vue';
 
+const router = useRouter();
 const axios = inject('axios');
 const books = ref([]);
 
