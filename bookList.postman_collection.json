@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "9ae0e96e-f326-446d-b58c-f54097ab4486",
+		"name": "interviewTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2759792"
+	},
+	"item": [
+		{
+			"name": "新增書本",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"author\": \"Sunny Huang\",\r\n  \"title\": \"讓別人贏\",\r\n  \"description\": \"在人生多重角色中，55個修煉與覺察的智慧\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_URL}}/books/",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"books",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "取得書籍列表",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/books/",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"books",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "取得單一書籍",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/books/73",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"books",
+						"73"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "編輯書籍",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"author\": \"Sunny Huang\",\r\n    \"title\": \"讓別人贏\",\r\n    \"description\": \"在人生多重角色中，55個修煉與覺察的智慧\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fe-interview-api.unnotech.com/books/63",
+					"protocol": "https",
+					"host": [
+						"fe-interview-api",
+						"unnotech",
+						"com"
+					],
+					"path": [
+						"books",
+						"63"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_URL",
+			"value": "https://fe-interview-api.unnotech.com",
+			"type": "string"
+		}
+	]
+}
