@@ -97,7 +97,7 @@ const newBook = () => {
   axios
     .post(url, data)
     .then(() => {
-      postSuccess('書籍', '新增成功', '/books');
+      postSuccess('成功', '新增書籍成功', '/books');
     })
     .catch((err) => {
       console.log(err);
