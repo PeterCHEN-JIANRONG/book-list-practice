@@ -19,7 +19,7 @@ const axios = inject('axios');
 const books = ref([]);
 
 const getBooks = () => {
-  const url = 'https://fe-interview-api.unnotech.com/books/';
+  const url = `${process.env.VUE_APP_API}/books/`;
   axios
     .get(url)
     .then((res) => {

@@ -86,7 +86,7 @@ const book = ref({});
 const tempBook = ref({});
 
 const getBook = () => {
-  const url = `https://fe-interview-api.unnotech.com/books/${route.params.bookId}`;
+  const url = `${process.env.VUE_APP_API}/books/${route.params.bookId}`;
   axios
     .get(url)
     .then((res) => {
@@ -109,7 +109,7 @@ const editBook = (id) => {
   const data = {
     title, author, description,
   };
-  const url = `https://fe-interview-api.unnotech.com/books/${id}`;
+  const url = `${process.env.VUE_APP_API}/books/${id}`;
   axios
     .patch(url, data)
     .then((res) => {
